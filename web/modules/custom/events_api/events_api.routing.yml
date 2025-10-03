@@ -1,0 +1,7 @@
+events_api.upcoming:
+  path: '/api/events/upcoming'
+  defaults:
+    _controller: '\Drupal\events_api\Controller\EventsApiController::getUpcomingEvents'
+    _title: 'Upcoming Events'
+  requirements:
+    _permission: 'access content'

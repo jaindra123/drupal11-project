@@ -1,0 +1,22 @@
+uuid: 6462c928-fcee-454e-ab39-4a664a1a5ced
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - events_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: events_theme_content
+theme: events_theme
+region: content
+weight: -7
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 83990050-3165-4267-a6fc-896937354f3c
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - events_theme
+_core:
+  default_config_hash: pbbed0hdqGDF-_QWVVTWRAwgDIotFuAvWH5mWUZu0fA
+id: events_theme_search_form_wide
+theme: events_theme
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

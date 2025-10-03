@@ -1,0 +1,85 @@
+uuid: 671ac972-23fe-4c7d-92c8-4a231f02b7e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_category
+    - field.field.node.event.field_event_body
+    - field.field.node.event.field_event_date_time
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_location
+    - field.field.node.event.field_summary
+    - node.type.event
+  module:
+    - datetime
+    - file
+    - text
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_category:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_event_body:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_date_time:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_event_image:
+    type: file_generic
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_location:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_summary:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

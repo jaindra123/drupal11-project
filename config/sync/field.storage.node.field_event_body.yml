@@ -1,0 +1,19 @@
+uuid: 40a546bc-3451-4070-8da6-6b408c79182b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_event_body
+field_name: field_event_body
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

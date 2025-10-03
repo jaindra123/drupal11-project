@@ -1,0 +1,13 @@
+name: Events Theme
+type: theme
+description: 'Custom theme for Events website.'
+core_version_requirement: ^11
+base theme: olivero
+regions:
+  header: 'Header'
+  hero: 'Hero'
+  featured_events: 'Featured Events'
+  content: 'Content'
+  footer: 'Footer'
+libraries:
+  - events_theme/global-styling

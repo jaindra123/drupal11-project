@@ -1,0 +1,46 @@
+/* Global styling for Events Theme */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background: url('../images/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.hero a.cta-btn {
+  background: #ff6600;
+  color: #fff;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.featured-events {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.featured-events .event-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+}
