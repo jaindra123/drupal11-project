@@ -1,0 +1,5 @@
+/vendor/
+/web/sites/default/files/
+/.webserver_config/
+/.drush/
+/.idea/
