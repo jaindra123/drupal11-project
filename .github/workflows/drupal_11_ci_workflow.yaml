@@ -1,0 +1,68 @@
+name: Drupal 11 CI/CD
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    env:
+      DRUPAL_ROOT: web
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: jaindra123/drupal11-project@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, pdo, mysqli, zip
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-interaction --prefer-dist
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Check PHP syntax
+        run: find . -type f -name "*.php" -exec php -l {} \;
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit
+
+      - name: Import Drupal config
+        run: |
+          composer require drush/drush --dev
+          vendor/bin/drush cr
+          vendor/bin/drush cim -y
+
+      - name: Set file permissions
+        run: |
+          chmod -R 755 web/sites/default/files
+          chmod 644 web/sites/default/settings.php
+
+      - name: Deploy to Server
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          key: ${{ env.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ${{ env.DEPLOY_PATH }}
+            git pull origin main
+            composer install --no-dev --optimize-autoloader
+            vendor/bin/drush cr
+            vendor/bin/drush cim -y
+            chmod -R 755 web/sites/default/files
