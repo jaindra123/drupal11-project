@@ -1,20 +1,25 @@
-uuid: 4e6029b5-355d-4dc0-9655-f512354b3858
+uuid: ae5b763e-7d9f-43c2-b722-4dbcc09cc63c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_image
-    - node.type.event
+    - field.storage.media.field_media_image
+    - media.type.image
   module:
     - image
-id: node.event.field_event_image
-field_name: field_event_image
-entity_type: node
-bundle: event
+  enforced:
+    module:
+      - media
+_core:
+  default_config_hash: P7CkVOgjDXiN26Fm2hniNei-XPK3iuZTlcBGqreTbJ0
+id: media.image.field_media_image
+field_name: field_media_image
+entity_type: media
+bundle: image
 label: Image
 description: ''
-required: false
-translatable: false
+required: true
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -25,12 +30,12 @@ settings:
   max_filesize: ''
   max_resolution: ''
   min_resolution: ''
-  alt_field: false
+  alt_field: true
   alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:
-    uuid: ''
+    uuid: null
     alt: ''
     title: ''
     width: null

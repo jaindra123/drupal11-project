@@ -9,10 +9,11 @@ dependencies:
     - field.field.node.event.field_event_image
     - field.field.node.event.field_location
     - field.field.node.event.field_summary
+    - image.style.thumbnail
     - node.type.event
   module:
     - datetime
-    - file
+    - image
     - text
 id: node.event.default
 targetEntityType: node
@@ -35,16 +36,17 @@ content:
     third_party_settings: {  }
   field_event_date_time:
     type: datetime_default
-    weight: 1
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
   field_event_image:
-    type: file_generic
-    weight: 4
+    type: image_image
+    weight: 26
     region: content
     settings:
       progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
   field_location:
     type: string_textfield

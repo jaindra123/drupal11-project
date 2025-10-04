@@ -1,4 +1,4 @@
-uuid: 49021e31-9341-4bfe-8d15-ee0b32c0f850
+uuid: c8c49193-4b04-4cc3-8ca3-6074fa248562
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - views
   theme:
     - events_theme
-id: events_theme_views_block__featured_events_block_1_2
+id: events_theme_views_block__featured_events_block_1
 theme: events_theme
 region: featured_events
 weight: 0
