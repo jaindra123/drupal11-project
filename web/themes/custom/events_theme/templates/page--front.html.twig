@@ -1,9 +1,14 @@
 {# page--front.html.twig #}
-<section class="hero">
-  <h1>Featured Events </h1>
-  <a href="#featured-events" class="cta-btn">View Events</a>
-</section>
 
-<section id="featured-events" class="featured-events">
-  {{ page.featured_events }}
-</section>
+
+<div class="hero">
+  <h1>Local Events</h1>
+  <p>Find and attend events near you — music, tech, sports & more.</p>
+  <a href="/events" class="btn">See Events</a>
+</div>
+
+<div class="events-section">
+  <h2>Featured Events</h2>
+    {{ page.featured_events }}
+</div>
+{{ page.footer }}

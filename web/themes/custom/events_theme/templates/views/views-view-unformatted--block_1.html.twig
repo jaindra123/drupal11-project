@@ -1,0 +1,16 @@
+<div class="events-grid">
+{% for row in rows %}
+  {% set node = row.content['#row']._entity %}
+  <div class="event-card">
+    {% if node.field_event_image.entity %}
+    <div class="event-img">  
+      <img src="{{ file_url(node.field_event_image.entity.uri.value) }}" alt="{{ node.field_event_image.alt }}">
+    </div>
+    {% endif %}
+    <div class="event-content">
+      <h4>{{ node.label() }}</h4>
+        {{ node.field_event_date_time.value|date("D, M j") }} • {{ node.field_location.value }}
+    </div>
+  </div>
+{% endfor %}
+</div>
