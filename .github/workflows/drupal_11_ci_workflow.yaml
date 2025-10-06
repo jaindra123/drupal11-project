@@ -50,9 +50,13 @@ jobs:
       # -----------------------------------------------
       # (Optional) Run PHPUnit tests if you have them
       # -----------------------------------------------
-      - name: Run PHPUnit tests
-        if: success() && files.exists('phpunit.xml')
-        run: vendor/bin/phpunit --configuration phpunit.xml
+      - name: Run PHPUnit tests (if phpunit.xml exists)
+        run: |
+          if [ -f phpunit.xml ]; then
+            ./vendor/bin/phpunit --configuration phpunit.xml
+          else
+            echo "No phpunit.xml found, skipping tests."
+          fi
 
       # -----------------------------------------------
       # (Optional) Cache Composer dependencies for speed
