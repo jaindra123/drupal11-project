@@ -3,3 +3,4 @@
 /.webserver_config/
 /.drush/
 /.idea/
+/config/sync/.htaccess
